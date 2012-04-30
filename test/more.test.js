@@ -19,12 +19,12 @@ module.exports = {
       field("field2").array(),
       field("field3").array()
     )(request, {});
-    assert.strictEqual(Array.isArray(request.form.fieldx), true);
-    assert.strictEqual(request.form.fieldx.length, 0);
-    assert.strictEqual(Array.isArray(request.form.field1), true);
-    assert.strictEqual(request.form.field1.length, 0);
-    assert.strictEqual(request.form.field2[0], "Hello!");
-    assert.strictEqual(request.form.field2.length, 1);
+    assert.strictEqual(Array.isArray(request.form.fieldx), false);
+    assert.strictEqual(request.form.fieldx, undefined);
+    assert.strictEqual(Array.isArray(request.form.field1), false);
+    assert.strictEqual(request.form.field1, '');
+    assert.strictEqual(request.form.field2[0], "H");
+    assert.strictEqual(request.form.field2.length, 6);
     assert.strictEqual(request.form.field3[0], "Alpacas?");
     assert.strictEqual(request.form.field3[1], "Llamas!!?");
     assert.strictEqual(request.form.field3[2], "Vicunas!");
