@@ -1,28 +1,31 @@
 {
-  "author": "Dan Dean <@dandean> (http://dandean.com)",
-  "name": "express-form",
-  "description": "Form validation and data filtering for Express",
-  "version": "0.6.3",
-  "homepage": "http://dandean.github.com/express-form",
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/dandean/express-form.git"
+  "name"        : "express-form2",
+  "version"     : "1.0.0",
+  "description" : "Form validation and data filtering for Express( compatible with COKE )",
+  "keywords"    : [
+    "form", "validator", "validation", "coke", "express"
+  ],
+  "author"        : "Dan Dean <@dandean> (http://dandean.com)",
+  "dependencies"  : {
+    "inflection"  : "1.2.0",
+    "node.extend" : "1.0.0",
+    "validator"   : "0.4.6-2"
   },
-  "contributors": [ 
+  "devDependencies" : {
+    "expresso" : "2.5.9",
+    "expresso" : "0.9.2"
+  },
+  "scripts"    : { "test": "expresso" },
+  "repository" : {
+    "type" : "git",
+    "url"  : "https://github.com/dreamerslab/express-form2.git"
+  },
+  "contributors" : [
+    "dreamerslab <ben@dreamerslab.com>",
     "Marc Harter <wavded@gmail.com>",
     "Sugarstack <@sugarstack>"
   ],
-  "keywords" : ["form", "validator", "validation", "express"],
-  "dependencies": {
-    "validator": ">= 0.1.2",
-    "object-additions": ">= 0.5.0"
-  },
-  "main" : "index",
-  "bugs" : { "url" : "http://github.com/dandean/express-form/issues" },
-  "scripts": { "test": "expresso" },
-  "engines": { "node": ">=0.2.2" },
-  "licenses" : [{
-    "type" : "MIT",
-    "url" : "http://github.com/dandean/express-form/raw/master/LICENSE"
-  }]
+  "main"    : "index",
+  "engines" : [ "node >= 0.6.0" ],
+  "license" : "MIT"
 }

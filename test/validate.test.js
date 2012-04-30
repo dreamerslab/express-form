@@ -8,18 +8,18 @@ module.exports = {
     var request = { body: {} };
     form(validate("field").isEmail())(request, {});
     assert.equal(request.form.errors.length, 0);
-    
+
     // Failure.
     var request = { body: { field: "fail" }};
     form(validate("field").isEmail())(request, {});
     assert.equal(request.form.errors.length, 1);
-    assert.equal(request.form.errors[0], "field is not an email address");
+    assert.equal(request.form.errors[0].msg, "field is not an email address");
 
     // Failure w/ custom message.
     var request = { body: { field: "fail" }};
     form(validate("field").isEmail("!!! %s !!!"))(request, {});
     assert.equal(request.form.errors.length, 1);
-    assert.equal(request.form.errors[0], "!!! field !!!");
+    assert.equal(request.form.errors[0].msg, "!!! field !!!");
 
     // Success
     var request = { body: { field: "me@dandean.com" }};
@@ -32,13 +32,13 @@ module.exports = {
     var request = { body: { field: "fail" }};
     form(validate("field").isUrl())(request, {});
     assert.equal(request.form.errors.length, 1);
-    assert.equal(request.form.errors[0], "field is not a URL");
+    assert.equal(request.form.errors[0].msg, "field is not an URL");
 
     // Failure w/ custom message.
     var request = { body: { field: "fail" }};
     form(validate("field").isUrl("!!! %s !!!"))(request, {});
     assert.equal(request.form.errors.length, 1);
-    assert.equal(request.form.errors[0], "!!! field !!!");
+    assert.equal(request.form.errors[0].msg, "!!! field !!!");
 
     // Success
     var request = { body: { field: "http://www.google.com" }};
@@ -51,13 +51,13 @@ module.exports = {
     var request = { body: { field: "fail" }};
     form(validate("field").isIP())(request, {});
     assert.equal(request.form.errors.length, 1);
-    assert.equal(request.form.errors[0], "field is not an IP address");
+    assert.equal(request.form.errors[0].msg, "field is not an IP address");
 
     // Failure w/ custom message.
     var request = { body: { field: "fail" }};
     form(validate("field").isIP("!!! %s !!!"))(request, {});
     assert.equal(request.form.errors.length, 1);
-    assert.equal(request.form.errors[0], "!!! field !!!");
+    assert.equal(request.form.errors[0].msg, "!!! field !!!");
 
     // Success
     var request = { body: { field: "0.0.0.0" }};
@@ -70,13 +70,13 @@ module.exports = {
     var request = { body: { field: "123456" }};
     form(validate("field").isAlpha())(request, {});
     assert.equal(request.form.errors.length, 1);
-    assert.equal(request.form.errors[0], "field contains non-letter characters");
+    assert.equal(request.form.errors[0].msg, "field contains non-letter characters");
 
     // Failure w/ custom message.
     var request = { body: { field: "123456" }};
     form(validate("field").isAlpha("!!! %s !!!"))(request, {});
     assert.equal(request.form.errors.length, 1);
-    assert.equal(request.form.errors[0], "!!! field !!!");
+    assert.equal(request.form.errors[0].msg, "!!! field !!!");
 
     // Success
     var request = { body: { field: "abcde" }};
@@ -89,13 +89,13 @@ module.exports = {
     var request = { body: { field: "------" }};
     form(validate("field").isAlphanumeric())(request, {});
     assert.equal(request.form.errors.length, 1);
-    assert.equal(request.form.errors[0], "field contains non alpha-numeric characters");
+    assert.equal(request.form.errors[0].msg, "field contains non alpha-numeric characters");
 
     // Failure w/ custom message.
     var request = { body: { field: "------" }};
     form(validate("field").isAlphanumeric("!!! %s !!!"))(request, {});
     assert.equal(request.form.errors.length, 1);
-    assert.equal(request.form.errors[0], "!!! field !!!");
+    assert.equal(request.form.errors[0].msg, "!!! field !!!");
 
     // Success
     var request = { body: { field: "abc123" }};
@@ -108,13 +108,13 @@ module.exports = {
     var request = { body: { field: "------" }};
     form(validate("field").isNumeric())(request, {});
     assert.equal(request.form.errors.length, 1);
-    assert.equal(request.form.errors[0], "field is not a number");
+    assert.equal(request.form.errors[0].msg, "field is not a number");
 
     // Failure w/ custom message.
     var request = { body: { field: "------" }};
     form(validate("field").isNumeric("!!! %s !!!"))(request, {});
     assert.equal(request.form.errors.length, 1);
-    assert.equal(request.form.errors[0], "!!! field !!!");
+    assert.equal(request.form.errors[0].msg, "!!! field !!!");
 
     // Success Int
     var request = { body: {
@@ -139,13 +139,13 @@ module.exports = {
     var request = { body: { field: "------" }};
     form(validate("field").isInt())(request, {});
     assert.equal(request.form.errors.length, 1);
-    assert.equal(request.form.errors[0], "field is not an integer");
+    assert.equal(request.form.errors[0].msg, "field is not an integer");
 
     // Failure w/ custom message.
     var request = { body: { field: "------" }};
     form(validate("field").isInt("!!! %s !!!"))(request, {});
     assert.equal(request.form.errors.length, 1);
-    assert.equal(request.form.errors[0], "!!! field !!!");
+    assert.equal(request.form.errors[0].msg, "!!! field !!!");
 
     // Success
     var request = { body: { field: "50" }};
@@ -158,13 +158,13 @@ module.exports = {
     var request = { body: { field: "FAIL" }};
     form(validate("field").isLowercase())(request, {});
     assert.equal(request.form.errors.length, 1);
-    assert.equal(request.form.errors[0], "field contains uppercase letters");
+    assert.equal(request.form.errors[0].msg, "field contains uppercase letters");
 
     // Failure w/ custom message.
     var request = { body: { field: "FAIL" }};
     form(validate("field").isInt("!!! %s !!!"))(request, {});
     assert.equal(request.form.errors.length, 1);
-    assert.equal(request.form.errors[0], "!!! field !!!");
+    assert.equal(request.form.errors[0].msg, "!!! field !!!");
 
     // Success
     var request = { body: { field: "win" }};
@@ -177,13 +177,13 @@ module.exports = {
     var request = { body: { field: "fail" }};
     form(validate("field").isUppercase())(request, {});
     assert.equal(request.form.errors.length, 1);
-    assert.equal(request.form.errors[0], "field contains lowercase letters");
+    assert.equal(request.form.errors[0].msg, "field contains lowercase letters");
 
     // Failure w/ custom message.
     var request = { body: { field: "fail" }};
     form(validate("field").isUppercase("!!! %s !!!"))(request, {});
     assert.equal(request.form.errors.length, 1);
-    assert.equal(request.form.errors[0], "!!! field !!!");
+    assert.equal(request.form.errors[0].msg, "!!! field !!!");
 
     // Success
     var request = { body: { field: "WIN" }};
@@ -196,13 +196,13 @@ module.exports = {
     var request = { body: { field: "5000" }};
     form(validate("field").isFloat())(request, {});
     assert.equal(request.form.errors.length, 1);
-    assert.equal(request.form.errors[0], "field is not a decimal");
+    assert.equal(request.form.errors[0].msg, "field is not a decimal");
 
     // Failure w/ custom message.
     var request = { body: { field: "5000" }};
     form(validate("field").isFloat("!!! %s !!!"))(request, {});
     assert.equal(request.form.errors.length, 1);
-    assert.equal(request.form.errors[0], "!!! field !!!");
+    assert.equal(request.form.errors[0].msg, "!!! field !!!");
 
     // Success
     var request = { body: { field: "5000.00" }};
@@ -215,13 +215,13 @@ module.exports = {
     var request = { body: { field: "  \t" }};
     form(validate("field").notEmpty())(request, {});
     assert.equal(request.form.errors.length, 1);
-    assert.equal(request.form.errors[0], "field has no value or is only whitespace");
+    assert.equal(request.form.errors[0].msg, "field has no value or is only whitespace");
 
     // Failure w/ custom message.
     var request = { body: { field: "  \t" }};
     form(validate("field").notEmpty("!!! %s !!!"))(request, {});
     assert.equal(request.form.errors.length, 1);
-    assert.equal(request.form.errors[0], "!!! field !!!");
+    assert.equal(request.form.errors[0].msg, "!!! field !!!");
 
     // Success
     var request = { body: { field: "win" }};
@@ -234,13 +234,13 @@ module.exports = {
     var request = { body: { field: "value" }};
     form(validate("field").equals("other"))(request, {});
     assert.equal(request.form.errors.length, 1);
-    assert.equal(request.form.errors[0], "field does not equal other");
+    assert.equal(request.form.errors[0].msg, "field does not equal to other");
 
     // Failure w/ custom message.
     var request = { body: { field: "value" }};
     form(validate("field").equals("other", "!!! %s !!!"))(request, {});
     assert.equal(request.form.errors.length, 1);
-    assert.equal(request.form.errors[0], "!!! field !!!");
+    assert.equal(request.form.errors[0].msg, "!!! field !!!");
 
     // Success
     var request = { body: { field: "value" }};
@@ -257,7 +257,7 @@ module.exports = {
     };
     form(validate("field1").equals("field::field2"))(request, {});
     assert.equal(request.form.errors.length, 1);
-    assert.equal(request.form.errors[0], "field1 does not equal value2");
+    assert.equal(request.form.errors[0].msg, "field1 does not equal to value2");
 
     // Success
     var request = {
@@ -278,7 +278,7 @@ module.exports = {
     };
     form(validate("field1.deep").equals("field::field2[deeper]"))(request, {});
     assert.equal(request.form.errors.length, 1);
-    assert.equal(request.form.errors[0], "field1.deep does not equal value2");
+    assert.equal(request.form.errors[0].msg, "field1.deep does not equal to value2");
 
     // Success with nested values
     var request = {
@@ -296,13 +296,13 @@ module.exports = {
     var request = { body: { field: "value" }};
     form(validate("field").contains("other"))(request, {});
     assert.equal(request.form.errors.length, 1);
-    assert.equal(request.form.errors[0], "field does not contain required characters");
+    assert.equal(request.form.errors[0].msg, "field does not contain required characters");
 
     // Failure w/ custom message.
     var request = { body: { field: "value" }};
     form(validate("field").contains("other", "!!! %s !!!"))(request, {});
     assert.equal(request.form.errors.length, 1);
-    assert.equal(request.form.errors[0], "!!! field !!!");
+    assert.equal(request.form.errors[0].msg, "!!! field !!!");
 
     // Success
     var request = { body: { field: "value" }};
@@ -315,13 +315,13 @@ module.exports = {
     var request = { body: { field: "value" }};
     form(validate("field").notContains("alu"))(request, {});
     assert.equal(request.form.errors.length, 1);
-    assert.equal(request.form.errors[0], "field contains invalid characters");
+    assert.equal(request.form.errors[0].msg, "field contains invalid characters");
 
     // Failure w/ custom message.
     var request = { body: { field: "value" }};
     form(validate("field").notContains("alu", "!!! %s !!!"))(request, {});
     assert.equal(request.form.errors.length, 1);
-    assert.equal(request.form.errors[0], "!!! field !!!");
+    assert.equal(request.form.errors[0].msg, "!!! field !!!");
 
     // Success
     var request = { body: { field: "value" }};
@@ -341,19 +341,19 @@ module.exports = {
     var request = { body: { field: "value" }};
     form(validate("field").regex(/^\d+$/))(request, {});
     assert.equal(request.form.errors.length, 1);
-    assert.equal(request.form.errors[0], "field has invalid characters");
+    assert.equal(request.form.errors[0].msg, "field has invalid characters");
 
     // Failure: RegExp with custom message.
     var request = { body: { field: "value" }};
     form(validate("field").regex(/^\d+$/, "!!! %s !!!"))(request, {});
     assert.equal(request.form.errors.length, 1);
-    assert.equal(request.form.errors[0], "!!! field !!!");
+    assert.equal(request.form.errors[0].msg, "!!! field !!!");
 
     // Failure: String with default args.
     var request = { body: { field: "value" }};
     form(validate("field").regex("^\d+$"))(request, {});
     assert.equal(request.form.errors.length, 1);
-    assert.equal(request.form.errors[0], "field has invalid characters");
+    assert.equal(request.form.errors[0].msg, "field has invalid characters");
 
     // Success: String with modifiers
     var request = { body: { field: "value" }};
@@ -364,13 +364,13 @@ module.exports = {
     var request = { body: { field: "value" }};
     form(validate("field").regex("^\d+$", "!!! %s !!!"))(request, {});
     assert.equal(request.form.errors.length, 1);
-    assert.equal(request.form.errors[0], "!!! field !!!");
+    assert.equal(request.form.errors[0].msg, "!!! field !!!");
 
     // Failure: String with modifiers and custom message
     var request = { body: { field: "value" }};
     form(validate("field").regex("^\d+$", "i", "!!! %s !!!"))(request, {});
     assert.equal(request.form.errors.length, 1);
-    assert.equal(request.form.errors[0], "!!! field !!!");
+    assert.equal(request.form.errors[0].msg, "!!! field !!!");
 
 
     // Success
@@ -391,19 +391,19 @@ module.exports = {
     var request = { body: { field: "value" }};
     form(validate("field").notRegex(/^value$/))(request, {});
     assert.equal(request.form.errors.length, 1);
-    assert.equal(request.form.errors[0], "field has invalid characters");
+    assert.equal(request.form.errors[0].msg, "field has invalid characters");
 
     // Failure: RegExp with custom message.
     var request = { body: { field: "value" }};
     form(validate("field").notRegex(/^value$/, "!!! %s !!!"))(request, {});
     assert.equal(request.form.errors.length, 1);
-    assert.equal(request.form.errors[0], "!!! field !!!");
+    assert.equal(request.form.errors[0].msg, "!!! field !!!");
 
     // Failure: String with default args.
     var request = { body: { field: "value" }};
     form(validate("field").notRegex("^value$"))(request, {});
     assert.equal(request.form.errors.length, 1);
-    assert.equal(request.form.errors[0], "field has invalid characters");
+    assert.equal(request.form.errors[0].msg, "field has invalid characters");
 
     // Success: String with modifiers
     var request = { body: { field: "value" }};
@@ -414,13 +414,13 @@ module.exports = {
     var request = { body: { field: "value" }};
     form(validate("field").notRegex("^value$", "!!! %s !!!"))(request, {});
     assert.equal(request.form.errors.length, 1);
-    assert.equal(request.form.errors[0], "!!! field !!!");
+    assert.equal(request.form.errors[0].msg, "!!! field !!!");
 
     // Failure: String with modifiers and custom message
     var request = { body: { field: "value" }};
     form(validate("field").notRegex("^value$", "i", "!!! %s !!!"))(request, {});
     assert.equal(request.form.errors.length, 1);
-    assert.equal(request.form.errors[0], "!!! field !!!");
+    assert.equal(request.form.errors[0].msg, "!!! field !!!");
 
     // Success
     var request = { body: { field: "value" }};
@@ -433,13 +433,13 @@ module.exports = {
     var request = { body: { field: "value" }};
     form(validate("field").minLength(10))(request, {});
     assert.equal(request.form.errors.length, 1);
-    assert.equal(request.form.errors[0], "field is too short");
+    assert.equal(request.form.errors[0].msg, "field is too short");
 
     // Failure w/ custom message.
     var request = { body: { field: "value" }};
     form(validate("field").minLength(10, "!!! %s !!!"))(request, {});
     assert.equal(request.form.errors.length, 1);
-    assert.equal(request.form.errors[0], "!!! field !!!");
+    assert.equal(request.form.errors[0].msg, "!!! field !!!");
 
     // Success
     var request = { body: { field: "value" }};
@@ -452,13 +452,13 @@ module.exports = {
     var request = { body: { field: "value" }};
     form(validate("field").maxLength(1))(request, {});
     assert.equal(request.form.errors.length, 1);
-    assert.equal(request.form.errors[0], "field is too long");
+    assert.equal(request.form.errors[0].msg, "field is too long");
 
     // Failure w/ custom message.
     var request = { body: { field: "value" }};
     form(validate("field").maxLength(1, "!!! %s !!!"))(request, {});
     assert.equal(request.form.errors.length, 1);
-    assert.equal(request.form.errors[0], "!!! field !!!");
+    assert.equal(request.form.errors[0].msg, "!!! field !!!");
 
     // Success
     var request = { body: { field: "value" }};
@@ -471,19 +471,19 @@ module.exports = {
     var request = { body: {} };
     form(validate("field").required())(request, {});
     assert.equal(request.form.errors.length, 1);
-    assert.equal(request.form.errors[0], "field is required");
+    assert.equal(request.form.errors[0].msg, "field is required");
 
     // Failure w/ placeholder value and custom message.
     var request = { body: { field: "value" }};
     form(validate("field").required("value", "!!! %s !!!"))(request, {});
     assert.equal(request.form.errors.length, 1);
-    assert.equal(request.form.errors[0], "!!! field !!!");
+    assert.equal(request.form.errors[0].msg, "!!! field !!!");
 
     // Success
     var request = { body: { field: "5000.00" }};
     form(validate("field").required())(request, {});
     assert.equal(request.form.errors.length, 0);
-    
+
     // Non-required fields with no value should not trigger errors
     // Success
     var request = { body: {
@@ -509,7 +509,7 @@ module.exports = {
       throw new Error();
     }))(request, {});
     assert.equal(request.form.errors.length, 1);
-    assert.equal(request.form.errors[0], "field is invalid");
+    assert.equal(request.form.errors[0].msg, "field is invalid");
 
     // Failure w/ custom message.
     request = { body: { field: "value" }};
@@ -517,7 +517,7 @@ module.exports = {
       throw new Error();
     }, "!!! %s !!!"))(request, {});
     assert.equal(request.form.errors.length, 1);
-    assert.equal(request.form.errors[0], "!!! field !!!");
+    assert.equal(request.form.errors[0].msg, "!!! field !!!");
 
     // Failure w/ custom message from internal error.
     request = { body: { field: "value" }};
@@ -525,8 +525,8 @@ module.exports = {
       throw new Error("Radical %s");
     }))(request, {});
     assert.equal(request.form.errors.length, 1);
-    assert.equal(request.form.errors[0], "Radical field");
-    
+    assert.equal(request.form.errors[0].msg, "Radical field");
+
     // Success
     request = { body: { field: "value" }};
     form(validate("field").custom(function(value) {}))(request, {});
@@ -543,7 +543,7 @@ module.exports = {
     }))(request, {});
     assert.equal(request.form.errors.length, 1);
   },
-  
+
   "validation : request.form property-pollution": function() {
     var request = { body: { }};
     form()(request, {});
