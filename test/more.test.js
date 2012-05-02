@@ -48,7 +48,7 @@ module.exports = {
     var request = { body: { field: [1, 2, "f"] } };
     form(field("field").array().isInt())(request, {});
     assert.equal(request.form.errors.length, 1);
-    assert.equal(request.form.errors[0].msg, "field is not an integer");
+    assert.equal(request.form.errors[0], "field is not an integer");
   },
   "field : nesting": function () {
     // Nesting with dot notation
@@ -137,7 +137,7 @@ module.exports = {
     assert.strictEqual(request.form.field1, "WHATEVER");
     assert.strictEqual(request.form.field2, "some thing");
     assert.equal(request.form.errors.length, 1);
-    assert.equal(request.form.errors[0].msg, "field1 is too long");
+    assert.equal(request.form.errors[0], "field1 is too long");
   },
 
   "field : autoTrim": function () {
