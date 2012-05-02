@@ -1,6 +1,7 @@
 ## 1.1.1 / 2012-05-01
 
-  - [refactoring] returns error only if the field is required for isArray
+  - [refactoring] Returns error only if the field is required for isArray
+  - [refactoring] Use default structure to show error msgs
 
 
 
