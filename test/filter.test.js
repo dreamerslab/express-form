@@ -8,7 +8,7 @@ module.exports = {
     form(filter("field").trim())(request, {});
     assert.equal(request.form.field, "value");
   },
-  
+
   'filter : ltrim': function() {
     var request = { body: { field: "\r\n  value   \t" }};
     form(filter("field").ltrim())(request, {});
