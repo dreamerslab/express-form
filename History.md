@@ -1,6 +1,12 @@
+## 1.1.3 / 2012-05-30
+
+  - [bug fix] Skip `undefined` value no matter what
+
+
+
 ## 1.1.2 / 2012-05-01
 
-  - [bug fix] Skip for undefined value if its not required
+  - [bug fix] Skip `undefined` value if its not required
 
 
 
