@@ -1,3 +1,11 @@
+# History
+
+## 1.1.5 / 2012-07-17
+
+- [bug fix] Undefined value for mix & max length
+
+
+
 ## 1.1.4 / 2012-06-26
 
 - [update packages] inflection->1.2.1, express->2.5.10, validator->0.4.9
