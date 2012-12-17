@@ -67,10 +67,10 @@ Install express-form2 through npm
 - field( name ).toBooleanStrict();
 - field( name ).trim( chars );
 - field( name ).xss( opt );
+- field( name ).toArray();
 - field( name ).toUpper();
 - field( name ).toLower();
 - field( name ).truncate( len );
-- field( name ).array();
 
 
 
@@ -242,26 +242,26 @@ The API is chainable, so you can keep calling filter/validator methods one after
 ### field( name ).xss( opt );
     Remove common XSS attack vectors from text ( true from images )
 
+### field( name ).toArray();
+    Using the toArray() flag means that field always gives an array. If the field value is an array, but there is no flag, then the first value in that array is used instead.
+
+        This means that you don't have to worry about unexpected post data that might break your code. Eg/ when you call an array method on what is actually a string.
+
+        field( 'project.users' ).toArray(),
+        // undefined => [], '' => [], 'q' => [ 'q' ], [ 'a', 'b' ] => [ 'a', 'b' ]
+
+        field( 'project.block' ),
+        // project.block : [ 'a', 'b' ] => 'a'. No 'toArray()', so only first value used.
+
+        In addition, any other methods called with the array method, are applied to every value within the array.
+
+        field( 'post.users' ).toArray().toUpper()
+        // post.users : [ 'one', 'two', 'three' ] => [ 'ONE', 'TWO', 'THREE' ]
+
 ### field( name ).toUpper();
 ### field( name ).toLower();
 ### field( name ).truncate( len );
     Chops value at (length - 3), appends `...`
-
-### field( name ).array();
-    Using the array() flag means that field always gives an array. If the field value is an array, but there is no flag, then the first value in that array is used instead.
-
-        This means that you don't have to worry about unexpected post data that might break your code. Eg/ when you call an array method on what is actually a string.
-
-        field( 'project.users' ).array(),
-        // undefined => [], '' => [], 'q' => [ 'q' ], [ 'a', 'b' ] => [ 'a', 'b' ]
-
-        field( 'project.block' ),
-        // project.block : [ 'a', 'b' ] => 'a'. No 'array()', so only first value used.
-
-        In addition, any other methods called with the array method, are applied to every value within the array.
-
-        field( 'post.users' ).array().toUpper()
-        // post.users : [ 'one', 'two', 'three' ] => [ 'ONE', 'TWO', 'THREE' ]
 
 ## Validations
 
