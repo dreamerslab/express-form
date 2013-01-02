@@ -204,7 +204,7 @@ module.exports = {
       var name = 'field' + i;
 
       assert.strictEqual( typeof request.form[ name ], 'boolean' );
-      assert.strictEqual( request.form[ name ], false);
+      assert.strictEqual( request.form[ name ], false );
     });
   },
 
