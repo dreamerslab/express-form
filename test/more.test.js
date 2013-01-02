@@ -37,7 +37,8 @@ module.exports = {
     var request = { body : { field : [ 'red', 'blue' ]}};
 
     form( field( 'field' ))( request, {});
-    assert.strictEqual( request.form.field, 'red' );
+    assert.strictEqual( request.form.field[ 0 ], 'red' );
+    assert.strictEqual( request.form.field[ 1 ], 'blue' );
 
     // Iterate and filter array.
     var request = { body : { field : [ 'david', 'stephen', 'greg' ]}};
