@@ -1,5 +1,11 @@
 # History
 
+## 1.2.0 / 2013-01-02
+
+- [bug fix] For array elements stay as array elements even without calling `toArray`
+
+
+
 ## 1.1.5 / 2012-07-17
 
 - [bug fix] Undefined value for mix & max length
