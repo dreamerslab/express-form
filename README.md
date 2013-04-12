@@ -475,7 +475,7 @@ Use '%s' in the message to have the field name or label printed in the message:
 
 ## Runing Tests
 
-    npm install expresso
+    npm install expresso -g
     cd /path/to/the/project/root
     expresso
 

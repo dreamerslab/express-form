@@ -1,5 +1,12 @@
 # History
 
+## 1.3.0 / 2013-04-12
+
+- [update packages] inflection->1.2.5, express->2.5.11, node.extend->1.0.2, validator->0.5.0
+- [refactoring] Array value has to call `isArray` first
+
+
+
 ## 1.2.0 / 2013-01-02
 
 - [bug fix] For array elements stay as array elements even without calling `toArray`
