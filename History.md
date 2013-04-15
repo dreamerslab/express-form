@@ -1,5 +1,12 @@
 # History
 
+## 1.3.1 / 2013-04-14
+
+- [update packages] node.extend->1.0.3
+- [bug fix] Make sure `isArray` & `toArray` work properly
+
+
+
 ## 1.3.0 / 2013-04-12
 
 - [update packages] inflection->1.2.5, express->2.5.11, node.extend->1.0.2, validator->0.5.0
