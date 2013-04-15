@@ -3,6 +3,7 @@ var form = require( '../index' );
 var validate = form.validate;
 
 module.exports = {
+
   'validate : isArray' : function (){
     // Skip validating empty values
     var request = { body : {}};
