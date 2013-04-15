@@ -1,5 +1,11 @@
 # History
 
+## 1.3.2 / 2013-04-14
+
+- [bug fix] Fix the same fucking bug
+
+
+
 ## 1.3.1 / 2013-04-14
 
 - [update packages] node.extend->1.0.3
