@@ -3,6 +3,34 @@ var form = require( '../index' );
 var validate = form.validate;
 
 module.exports = {
+  'validate : isArray' : function (){
+    // Skip validating empty values
+    var request = { body : {}};
+
+    form( validate( 'field' ).isArray())( request, {});
+    assert.equal( request.form.errors.length, 0 );
+
+    // Failure.
+    var request = { body : { field : 'fail' }};
+
+    form( validate( 'field' ).isArray())( request, {});
+    assert.equal( request.form.errors.length, 1 );
+    assert.equal( request.form.errors[ 0 ], 'field is not an array' );
+
+    // Failure w/ custom message.
+    var request = { body : { field : 'fail' }};
+
+    form( validate( 'field' ).isArray( '!!! %s !!!' ))( request, {});
+    assert.equal( request.form.errors.length, 1 );
+    assert.equal( request.form.errors[ 0 ], '!!! field !!!' );
+
+    // Success
+    var request = { body : { field : [ 1, 2 ]}};
+
+    form( validate( 'field' ).isArray())( request, {});
+    assert.equal( request.form.errors.length, 0 );
+  },
+
   'validate : isEmail' : function (){
     // Skip validating empty values
     var request = { body : {}};
