@@ -1,5 +1,13 @@
 # History
 
+## 1.4.0 / 2013-04-20
+
+- [bug fix] Validator `is` only take string now
+- [new feature] Add `isBool` & `isBoolean`
+- [refactoring] Better `utils.typeof`
+
+
+
 ## 1.3.2 / 2013-04-14
 
 - [bug fix] Fix the same fucking bug
