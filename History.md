@@ -1,5 +1,11 @@
 # History
 
+## 1.4.1 / 2013-04-20
+
+- [bug fix] Typo `ture` -> `true`
+
+
+
 ## 1.4.0 / 2013-04-20
 
 - [bug fix] Validator `is` only take string now
