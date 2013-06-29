@@ -1,5 +1,11 @@
 # History
 
+## 1.4.2 / 2013-06-29
+
+- [bug fix] Return when the param is null
+
+
+
 ## 1.4.1 / 2013-04-20
 
 - [bug fix] Typo `ture` -> `true`
