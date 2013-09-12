@@ -1,5 +1,11 @@
 # History
 
+## 1.4.3 / 2013-09-11
+
+- [update packages] node.extend->1.0.8, validator->1.5.1,
+
+
+
 ## 1.4.2 / 2013-06-29
 
 - [bug fix] Return when the param is null
