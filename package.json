@@ -1,6 +1,6 @@
 {
   "name"        : "express-form2",
-  "version"     : "1.4.2",
+  "version"     : "1.4.3",
   "description" : "Form validation and data filtering for Express( compatible with COKE )",
   "keywords"    : [
     "form", "validator", "validation", "coke", "express"
@@ -8,8 +8,8 @@
   "author"        : "Dan Dean <@dandean> (http://dandean.com)",
   "dependencies"  : {
     "inflection"  : "1.2.6",
-    "node.extend" : "1.0.7",
-    "validator"   : "1.2.1"
+    "node.extend" : "1.0.8",
+    "validator"   : "1.5.1"
   },
   "devDependencies" : {
     "express"  : "2.5.11",
