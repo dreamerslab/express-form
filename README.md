@@ -422,9 +422,9 @@ Use '%s' in the message to have the field name or label printed in the message:
         Throws an error if `username` field does not have value 'admin'.
 
         field( 'username' ).custom( function ( value ){
-            if(value !== 'admin' ){
-              throw new Error( '%s must be `admin`.' );
-            }
+          if( value !== 'admin' ){
+            throw new Error( '%s must be `admin`.' );
+          }
         });
 
 ## Error Code
