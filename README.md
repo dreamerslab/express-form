@@ -78,7 +78,7 @@ Install express-form2 through npm
 
 ### Example
 
-    var form    = require( 'express-form' );
+    var form    = require( 'express-form2' );
     var field   = form.field;
     var express = require( 'express' );
     var app     = express.createServer();
@@ -120,7 +120,7 @@ Install express-form2 through npm
 
 The Express Form **module** returns an Express [Route Middleware](http://expressjs.com/guide.html#Route-Middleware) function. You specify filtering and validation by passing filters and validators as arguments to the main module function. For example:
 
-    var form = require( 'express-form' );
+    var form = require( 'express-form2' );
 
     app.post( '/user',
 
@@ -194,7 +194,7 @@ Express Form has various configuration options, but aims for sensible defaults f
 
 The `field` property of the module creates a filter/validator object tied to a specific field.
 
-    var form  = require( 'express-form' );
+    var form  = require( 'express-form2' );
     var field = form.field;
 
     field( fieldname[, label ]);
