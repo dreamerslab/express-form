@@ -18,7 +18,7 @@
   "scripts"    : { "test": "expresso" },
   "repository" : {
     "type" : "git",
-    "url"  : "https://github.com/dreamerslab/express-form2.git"
+    "url"  : "https://github.com/dreamerslab/express-form.git"
   },
   "contributors" : [
     "dreamerslab <ben@dreamerslab.com>",
