@@ -1,5 +1,11 @@
 # History
 
+## 1.4.4 / 2014-05-12
+
+- [update packages] inflection->1.3.5, node.extend->1.0.10, validator->2.1.0
+
+
+
 ## 1.4.3 / 2013-09-11
 
 - [update packages] node.extend->1.0.8, validator->1.5.1,
