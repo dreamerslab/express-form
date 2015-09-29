@@ -260,14 +260,14 @@ module.exports = {
     assert.equal( request.form.errors[ 0 ], 'field is not a decimal' );
 
     // Failure w/ custom message.
-    var request = { body : { field : '5000' }};
+    var request = { body : { field : 5000 }};
 
     form( validate( 'field' ).isFloat( '!!! %s !!!' ))( request, {});
     assert.equal( request.form.errors.length, 1 );
     assert.equal( request.form.errors[ 0 ], '!!! field !!!' );
 
     // Success
-    var request = { body : { field : '5000.00' }};
+    var request = { body : { field : 9.123 }};
 
     form( validate( 'field' ).isFloat())( request, {});
     assert.equal( request.form.errors.length, 0 );
