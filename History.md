@@ -1,5 +1,12 @@
 # History
 
+## 1.5.0 / 2015-09-29
+
+- [update packages] inflection->1.7.1, node.extend->1.1.5
+- [bug fix] Validator `isFloat` now works properly
+
+
+
 ## 1.4.4 / 2014-05-12
 
 - [update packages] inflection->1.3.5, node.extend->1.0.10, validator->2.1.0
